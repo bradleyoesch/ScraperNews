@@ -1,12 +1,8 @@
 Scraper News
 ============
 
-Will scrape Hacker News every X minutes and tweet (@ScraperNews) all posts with at least Y comments, in order of posting.
+Scrapes Hacker News and tweets (@ScraperNews) all posts with at least 50 comments.
 
-To Do:
+To run, install scrapy and twython. You must have your own twitter handle and app (apps.twitter.com) with your phone number attached in order to have read/write access.
 
-1. How to link post url to number of comments.  
-2. How to ensure there are no duplicate postings.  
-3. How to post to twitter programatically.  
-4. How to run project every X minutes.  
-5. How to create perpetual motion.  
+Currently runs every 15 minutes with a kind of sketchy command line loop, but I don't know what the correct way is to run certain commands in the command line at a time interval.
