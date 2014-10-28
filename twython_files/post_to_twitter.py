@@ -5,10 +5,24 @@ import secrets
 twitter = Twython(secrets.APP_KEY, secrets.APP_SECRET,
                   secrets.OAUTH_TOKEN, secrets.OAUTH_TOKEN_SECRET)
 
-with open("items.json") as file_in: # read all items with greater than 50 comments
-  items = json.load(file_in)
-with open("recents.txt") as file_in: # read all recently tweeted item_ids, to avoid duplicates
-  recents = [int(x.strip('\n')) for x in file_in.readlines()]
+items = []
+try:
+  with open("items.json") as file_in: # read all items with greater than 50 comments
+    items = json.load(file_in)
+  try_counter = 3
+except ValueError as e: # just need to clear items.json
+  print e
+except IOError as e:
+  print e
+finally:
+  file_out = open("items.json", "w") # clear old file since scrapy doesn't overwrite for some reason
+  file_out.close()
+
+try:
+  with open("recents.txt") as file_in: # read all recently tweeted item_ids, to avoid duplicates
+    recents = [int(x.strip('\n')) for x in file_in.readlines()]
+except IOError as e:
+  print e
 
 for item in items:
   if item['item_id'] not in recents: # if we've not already tweeted this link yet, tweet it
@@ -24,8 +38,6 @@ for item_id in recents:
   file_out.write("{0}\n".format(item_id))
 file_out.close()
 
-file_out = open("items.json", "w") # clear old file since scrapy doesn't overwrite for some reason
-file_out.close()
 
 print "testing_twitter.py run completed!" # run scripts every 15 minutes (900 seconds)
 # while :; do clear; scrapy crawl scraper_news -o items.json; python twython_files/post_to_twitter.py; sleep 900; done
