@@ -32,7 +32,7 @@ class ScraperNewsSpider(scrapy.Spider):
 
       title = sel.xpath('td[@class="title"]/a/text()').extract()
       if (len(title) > 0):
-        item['title'] = title[0]
+        item['title'] = title[0].replace(u"\u2018", "'").replace(u"\u2019", "'").replace(u"\u201c","\"").replace(u"\u201d", "\"") # remove smart quotes
       else: # cannot find title
         item['title'] = None
 
