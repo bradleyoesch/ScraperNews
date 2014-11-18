@@ -1,7 +1,7 @@
 Scraper News
 ============
 
-Scrapes [Hacker News](https://news.ycombinator.com) and tweets ([@ScraperNews](http://twitter.com/ScraperNews)) all posts with at least 50 comments.
+Scrapes [Hacker News](https://news.ycombinator.com) and tweets ([@ScraperNews](http://twitter.com/ScraperNews)) all posts with at least 70 comments.
 
 To run, install [scrapy](https://github.com/scrapy/scrapy) and [twython](https://github.com/ryanmcgrath/twython) (I installed them with [pip](https://github.com/pypa/pip)). You must have your own twitter handle and app ([apps.twitter.com](http://apps.twitter.com)) with your phone number attached in order to have read/write access.
 
