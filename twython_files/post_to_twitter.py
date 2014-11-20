@@ -33,7 +33,7 @@ except IOError as e:
 
 for item in items:
   if item['item_id'] not in recents: # if we've not already tweeted this link yet, tweet it
-    status = "{0} - https://news.ycombinator.com/item?id={1}".format(item['title'], str(item['item_id']))
+    status = "{0}. Or is it??? - https://news.ycombinator.com/item?id={1}".format(item['title'], str(item['item_id']))
     try:
       logging.info("Attempting to post status: {0}".format(status))
       twitter.update_status(status=status)
