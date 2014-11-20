@@ -27,9 +27,9 @@ finally: # no matter what, clear the file for the next round
 try:
   with open("recents.txt") as file_in: # read all recently tweeted item_ids, to avoid duplicates
     recents = [int(x.strip('\n')) for x in file_in.readlines()]
+    logging.info("Length of recents: {0}".format(len(recents)))
 except IOError as e:
   logging.debug("IOError while loading recents.txt")
-  logging.debug(e)
 
 for item in items:
   if item['item_id'] not in recents: # if we've not already tweeted this link yet, tweet it
