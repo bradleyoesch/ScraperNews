@@ -13,6 +13,7 @@ BOT_NAME = 'scraper_news'
 SPIDER_MODULES = ['scraper_news.spiders']
 NEWSPIDER_MODULE = 'scraper_news.spiders'
 
+# pipeline values go in ascending order, convention is 1-1000, so I set as 500 to be a good middle for future expansion
 ITEM_PIPELINES = {
   'scraper_news.pipelines.ScraperNewsPipeline': 500
 }

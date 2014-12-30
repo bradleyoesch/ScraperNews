@@ -8,8 +8,8 @@
 import scrapy
 
 class ScraperNewsItem(scrapy.Item):
-    num_comments = scrapy.Field()
     item_id = scrapy.Field()
     title = scrapy.Field()
     url = scrapy.Field()
+    num_comments = scrapy.Field()
     pass
