@@ -33,7 +33,7 @@ class ScraperNewsSpider(scrapy.Spider):
       num_comments = sel.xpath("following-sibling::tr[position() = 1]/td[@class=\"subtext\"]/a[last()]/text()").extract()
       if (len(num_comments) > 0):
         # we want to isolate the number of comments from "83 comments"
-        num_comments = num_comments[0].split(" ")
+        num_comments = num_comments[0].split(u'\xa0')
         if (len(num_comments) > 1):
           # if it's not something like "discuss" or a jobs post
           item['num_comments'] = int(num_comments[0])

@@ -10,7 +10,7 @@ import logging
 
 class ScraperNewsPipeline(object):
 
-  MIN_COMMENTS = 70
+  MIN_COMMENTS = 90
 
   def process_item(self, item, spider):
     """Run through a several different ways the item could be dropped, namely if the item is missing any values or if

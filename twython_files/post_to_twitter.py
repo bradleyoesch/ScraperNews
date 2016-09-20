@@ -13,7 +13,7 @@ import time
 import datetime
 
 logging.basicConfig(filename='logs.log',level=logging.DEBUG)
-time_begin = datetime.datetime.fromtimestamp(time.time()).strftime("%Y-%m-%d %H:%M:%S")
+time_begin = datetime.datetime.fromtimestamp(time.time()).strftime("%Y-%m-%d %H:%M:%S %z")
 logging.info("{} - Begin posting".format(time_begin))
 
 twitter = Twython(secrets.APP_KEY, secrets.APP_SECRET,
